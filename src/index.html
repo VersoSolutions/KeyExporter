@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Verso Cards - Offline Generator</title>
+    <style>
+      <!-- @include index.css -->
+    </style>
+  </head>
+  <body>
+
+    <script type="text/javascript">
+      <!-- @include ../vendor/crypto-js/core.js -->
+      <!-- @include ../vendor/crypto-js/x64-core.js -->
+      <!-- @include ../vendor/crypto-js/cipher-core.js -->
+      <!-- @include ../vendor/crypto-js/hmac.js -->
+      <!-- @include ../vendor/crypto-js/aes.js -->
+      <!-- @include ../vendor/crypto-js/ripemd160.js -->
+      <!-- @include ../vendor/crypto-js/sha256.js -->
+      <!-- @include ../vendor/crypto-js/sha512.js -->
+      <!-- @include ../vendor/crypto-js/format-hex.js -->
+      <!-- @include ../vendor/crypto-js/enc-base64.js -->
+      <!-- @include ../vendor/crypto-js/mode-ctr.js -->
+      <!-- @include ../vendor/crypto-js/pad-nopadding.js -->
+      <!-- @include ../vendor/jsbn/jsbn.js -->
+      <!-- @include ../vendor/jsbn/jsbn2.js -->
+      <!-- @include ../vendor/jsbn/prng4.js -->
+      <!-- @include ../vendor/jsbn/rng.js -->
+      <!-- @include ../vendor/jsbn/rsa.js -->
+      <!-- @include ../vendor/jsbn/ec.js -->
+      <!-- @include ../vendor/jsbn/sec.js -->
+      <!-- @include ../vendor/crypto-js/core.js -->
+      <!-- @include ../vendor/sjcl.min.js -->
+      <!-- @include ../vendor/secrets.min.js -->
+      <!-- @include ../vendor/jquery-1.10.2.min.js -->
+      <!-- @include ../vendor/bitcoinlib.min.js -->
+      <!-- @include ../vendor/versolib.min.js -->
+
+      <!-- @include ../dist/key_exporter.js -->
+</script>
+
+
+    <h1>Verso Cards - Private key exporter</h1>
+
+    <h2>1. Content of your card</h2>
+
+    <p>Enter the content of the private side of your Verso. </p>
+    <p>   <font color="red"> Remember that this procedure will expose your private key!!! </font>  </p>
+	
+
+    <form id="cardData">
+
+      <div>
+          	Private side <input type="text" id="privateInfo" />
+		  <br/>
+			Password <input type="password" id="password" /> 
+      </div>
+
+      <!--<div>
+        <label for="password">Password</label>
+        <input type="password" id="password" />
+      </div>-->
+
+      <div class="buttons">
+        <button id="extract">Extract</button>
+      </div>
+
+      <div class="error">
+        <p>There was a problem with the data you entered:</p>
+        <ul id="errorMessages"></ul>
+      </div>
+    </form>
+
+    <h2>2. Private key</h2>
+
+    <p>This is your WIF private key; you may import it in any other compatible wallet client.</p>
+
+    <textarea id="privateKey"></textarea>
+
+  </body>
+</html>

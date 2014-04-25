@@ -1,0 +1,35 @@
+{
+  "name": "keyextractor",
+  "title": "KeyExtractor",
+  "description": "Tool to extract the private key of your Verso Cards",
+  "version": "0.1.0",
+  "homepage": "http://github.com/VersoSolutions/KeyExtractor",
+  "author": {
+    "name": "Verso Solutions LLC",
+    "url": "http://www.versocards.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/VersoSolutions/KeyExtractor.git"
+  },
+  "keywords": [
+    "bitcoin",
+    "wallet"
+  ],
+  "bugs": {
+    "url": "http://github.com/VersoSolutions/KeyExtractor/issues"
+  },
+  "license": {
+    "name": "GPL v3",
+    "url": "http://github.com/VersoSolutions/KeyExtractor/blob/master/LICENSE"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "~0.4.0",
+    "grunt-contrib-jshint": "~0.8.0",
+    "grunt-preprocess": "~4.0.0"
+  },
+  "scripts": {
+    "build": "grunt"
+  }
+}
