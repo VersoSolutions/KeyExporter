@@ -16,8 +16,10 @@ module.exports = function (grunt) {
                 }
             },
             js: {
-                src: 'src/key_exporter.js',
-                dest: 'dist/key_exporter.js'
+              files: {
+                'dist/key_exporter.js': 'src/key_exporter.js',
+                'dist/scanner.js': 'src/scanner.js',
+              }
             },
             html: {
                 src: 'src/index.html',

@@ -35,26 +35,45 @@
       <!-- @include ../vendor/jquery-1.10.2.min.js -->
       <!-- @include ../vendor/bitcoinlib.min.js -->
       <!-- @include ../vendor/versolib.min.js -->
+      <!-- @include ../vendor/webqr/grid.js -->
+      <!-- @include ../vendor/webqr/version.js -->
+      <!-- @include ../vendor/webqr/detector.js -->
+      <!-- @include ../vendor/webqr/formatinf.js -->
+      <!-- @include ../vendor/webqr/errorlevel.js -->
+      <!-- @include ../vendor/webqr/bitmat.js -->
+      <!-- @include ../vendor/webqr/datablock.js -->
+      <!-- @include ../vendor/webqr/bmparser.js -->
+      <!-- @include ../vendor/webqr/datamask.js -->
+      <!-- @include ../vendor/webqr/rsdecoder.js -->
+      <!-- @include ../vendor/webqr/gf256poly.js -->
+      <!-- @include ../vendor/webqr/gf256.js -->
+      <!-- @include ../vendor/webqr/decoder.js -->
+      <!-- @include ../vendor/webqr/qrcode.js -->
+      <!-- @include ../vendor/webqr/findpat.js -->
+      <!-- @include ../vendor/webqr/alignpat.js -->
+      <!-- @include ../vendor/webqr/databr.js -->
+
 
       <!-- @include ../dist/key_exporter.js -->
+      <!-- @include ../dist/scanner.js -->
 </script>
 
 
-    <h1>Verso Cards - Private key exporter</h1>
+<h1>Verso Cards - Private key exporter</h1>
 
-    <h2>1. Content of your card</h2>
+<h2>1. Scan your Verso card here</h2>
 
-    <p>Enter the content of the private side of your Verso. </p>
-    <p>   <font color="red"> Remember that this procedure will expose your private key!!! </font>  </p>
-	
+<p>The tool is curently only compatible with the release Firefox above version 36 <a href="https://www.mozilla.org/fr/firefox/new/">download here</a> </p>
+
+<p>   <font color="red"> This procedure will expose your private key!!! </font>  </p>
 
     <form id="cardData">
 
-      <div>
-          	Private side <input type="text" id="privateInfo" />
-		  <br/>
-			Password <input type="password" id="password" /> 
-      </div>
+    <div>
+          Private side <input type="text" id="privateInfo" /> <button onclick="loadcam()" id="startscanner" type="button">Scan</button>
+    <br/>
+    Password <input type="password" id="password" />
+    </div>
 
       <!--<div>
         <label for="password">Password</label>
@@ -71,11 +90,47 @@
       </div>
     </form>
 
+    <div>
+      <canvas id="qr-canvas"  style="display:none"></canvas>
+      <div id="outdiv"></div>
+    </div>
+
     <h2>2. Private key</h2>
 
     <p>This is your WIF private key; you may import it in any other compatible wallet client.</p>
 
     <textarea id="privateKey"></textarea>
+
+    <h2>3. Import in new wallet ( Android ) </h2>
+
+        <p>1 - Download Mycelium from the Android Play Store
+    <a href="https://play.google.com/store/apps/details?id=com.mycelium.wallet&hl=en">download here</a>
+    </p>
+
+        </p> 2 - Select Accounts </p>
+        </p> 3 - Press the '+' with the key symbol </p>
+        </p> 4 - Select 'Advanced' then scan your private key </p>
+        <img src="assets/img/mycelium_1.jpg" />
+        <br />
+        <img src="assets/img/mycelium_2.jpg" />
+
+
+    <p>Once your private key has been imported you can use your bitcoin address and your fund in this wallet </p>
+
+    <h2>3. Import in new wallet ( IOS ) </h2>
+     <p>1 - Download Bread Wallet from the iTunes AppStore
+    <a href="https://itunes.apple.com/us/app/breadwallet-bitcoin-wallet/id885251393?mt=8">download here</a>
+    </p>
+
+     <p>2 - Open Bread Wallet then press the top right button </p>
+     <p>3 - Press the top right button </p>
+     <p>4 - Select import private key and scan your private key (QR Code) </p>
+
+     <p>Once your private key has been imported you can use your bitcoin address and your fund in this wallet </p>
+       <img src="./assets/img/bread_0.jpg" />
+       <img src="./assets/img/bread_1.jpg" />
+       <img src="./assets/img/bread_2.jpg" />
+       <img src="./assets/img/bread_3.jpg" />
 
   </body>
 </html>
