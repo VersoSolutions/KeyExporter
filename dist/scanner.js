@@ -22,13 +22,12 @@ var vidhtml = '<video id="v" style="width:100%;" autoplay></video><br/><button t
 
 function success(stream) {
 
-    if(webkit) {
+  console.log('ok');
+
+    if (webkit) {
         v.src = window.webkitURL.createObjectURL(stream);
-                                localStream = stream;
-                }
-    else
-    if(moz)
-    {
+        localStream = stream;
+    } else if (moz) {
         v.mozSrcObject = stream;
         v.play();
     }
@@ -56,6 +55,7 @@ function killvid() {
 }
 
 function error(err) {
+    console.log(err);
     gUM=false;
     return;
 }
@@ -115,19 +115,23 @@ function setwebcam()
     document.getElementById("outdiv").innerHTML = vidhtml;
     v=document.getElementById("v");
 
-    if(n.getUserMedia)
-        n.getUserMedia({video: true, audio: false}, success, error);
+    if(n.getUserMedia) {
+      n.getUserMedia({video: true, audio: false}, success, error);
+      console.log(1);
+    }
     else
     if(n.webkitGetUserMedia)
     {
         webkit=true;
         n.webkitGetUserMedia({video: true, audio: false}, success, error);
+        console.log(2);
     }
     else
     if(n.mozGetUserMedia)
     {
         moz=true;
         n.mozGetUserMedia({video: true, audio: false}, success, error);
+        console.log(3);
     }
     stype=1;
     setTimeout(captureToCanvas, 200);

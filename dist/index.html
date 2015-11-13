@@ -79,8 +79,8 @@
       }
       
       #outdiv {
-      	width: 200px;
-      	height: 200px;
+      	width: 400px;
+      	height: 400px;
       }
       
     </style>
@@ -12647,13 +12647,12 @@
       
       function success(stream) {
       
-          if(webkit) {
+        console.log('ok');
+      
+          if (webkit) {
               v.src = window.webkitURL.createObjectURL(stream);
-                                      localStream = stream;
-                      }
-          else
-          if(moz)
-          {
+              localStream = stream;
+          } else if (moz) {
               v.mozSrcObject = stream;
               v.play();
           }
@@ -12681,6 +12680,7 @@
       }
       
       function error(err) {
+          console.log(err);
           gUM=false;
           return;
       }
@@ -12740,19 +12740,23 @@
           document.getElementById("outdiv").innerHTML = vidhtml;
           v=document.getElementById("v");
       
-          if(n.getUserMedia)
-              n.getUserMedia({video: true, audio: false}, success, error);
+          if(n.getUserMedia) {
+            n.getUserMedia({video: true, audio: false}, success, error);
+            console.log(1);
+          }
           else
           if(n.webkitGetUserMedia)
           {
               webkit=true;
               n.webkitGetUserMedia({video: true, audio: false}, success, error);
+              console.log(2);
           }
           else
           if(n.mozGetUserMedia)
           {
               moz=true;
               n.mozGetUserMedia({video: true, audio: false}, success, error);
+              console.log(3);
           }
           stype=1;
           setTimeout(captureToCanvas, 200);
@@ -12839,7 +12843,6 @@
         </p> 3 - Press the '+' with the key symbol </p>
         </p> 4 - Select 'Advanced' then scan your private key </p>
         <img src="assets/img/mycelium_1.jpg" />
-        <br />
         <img src="assets/img/mycelium_2.jpg" />
 
 
