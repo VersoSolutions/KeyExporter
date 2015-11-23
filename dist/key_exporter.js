@@ -12,7 +12,7 @@ $(document).ready(function () {
         var password = $('#password').val();
         var card = Verso.Card.parsePrivate(privateInfo);
 
-        if (!card) { 
+        if (!card) {
 			alert('Your private info is incorrect');
             //$('#errorMessages').val("test");
 
@@ -20,14 +20,17 @@ $(document).ready(function () {
         }
 
         try {
-		var encSeed = card.getEndpoints(password, undefined, function (eps) { 
+          var encSeed = card.getEndpoints(password, undefined, function (eps) {
             $('#privateKey').val(eps[0].getPrivateCheck());
-        }); 
-		} 
-		catch (err) {
-			alert('incorrect password');
-		} 
-		
-                
+            console.log(eps[0].getPrivateCheck());
+            jQuery('#qrcode').qrcode(eps[0].getPrivateCheck());
+        });
+    }
+    catch (err) {
+      console.log(err);
+      alert('incorrect password');
+    }
+
+
     });
 });

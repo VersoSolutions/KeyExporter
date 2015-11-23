@@ -52,7 +52,8 @@
       <!-- @include ../vendor/webqr/findpat.js -->
       <!-- @include ../vendor/webqr/alignpat.js -->
       <!-- @include ../vendor/webqr/databr.js -->
-
+      <!-- @include ../vendor/jquery-qrcode/qrcode.js -->
+      <!-- @include ../vendor/jquery-qrcode/jquery.qrcode.js -->
 
       <!-- @include ../dist/key_exporter.js -->
       <!-- @include ../dist/scanner.js -->
@@ -100,6 +101,8 @@
     <p>This is your WIF private key; you may import it in any other compatible wallet client.</p>
 
     <textarea id="privateKey"></textarea>
+    <div id="qrcode"></div><br/>
+<h4>This private key represented by a QR code has to be scanned in the procedure below</h4>
 
     <h2>3. Import in new wallet ( Android ) </h2>
 
